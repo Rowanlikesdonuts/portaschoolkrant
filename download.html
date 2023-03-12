@@ -21,6 +21,35 @@
       
       transform: matrix(1.2, 0, 0, 1.2, 14, 3.5);
 		}
+
+    .fade-in {
+  opacity: 0;
+  animation: fade-in-animation 0.5s ease-in forwards;
+  
+}
+
+@keyframes fade-in-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out.is-fading {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.fade-out.is-fading .fade-out-content {
+  animation: fade-in-animation 0.5s ease-in-out forwards;
+}
+
 	       
 	       a:link {
   color: white;
@@ -54,8 +83,8 @@ a:active {
     </style>
   </head>
   <body style="background-color:#E1F4FF;">
-    <div class="title-bar">Porta Schoolkrant Site | <a href="/portaschoolkrant/index.html">Home</a> | <a href="/portaschoolkrant/meedoen.html">Meehelpen</a> | <a href="/portaschoolkrant/download.html">Download</a></div>
-    <H1 style="font-family: Verdana"><p>Downloads </p></H1>
+    <div class="title-bar">Porta Schoolkrant Site | <a href="/portaschoolkrant/index.html" class="fade-out-link">Home</a> | <a href="/portaschoolkrant/meedoen.html" class="fade-out-link">Meehelpen</a> | <a href="/portaschoolkrant/download.html" class="fade-out-link">Download</a></div>
+    <div class="fade-out"><div class="fade-in"><H1 style="font-family: Verdana"><p>Downloads </p></H1>
 
     <H4 style="font-family: helvetica"><p>Download de krant hieronder!</p>
 <div class="downloadbutton"><a href="logo.png" download>
@@ -65,6 +94,7 @@ a:active {
 	    <p>Het schoolkrant team</p></H4>
 	    
 	<br><br>
-	    <img src="logo.png"></a>
+      <img src="logo.png"></a></div></div>
+      <script src="Fade-out.js"></script>
   </body>
 </html>
