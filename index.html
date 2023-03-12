@@ -42,6 +42,37 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in-animation 0.5s ease-in forwards;
+  
+}
+
+@keyframes fade-in-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out.is-fading {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.fade-out.is-fading .fade-out-content {
+  animation: fade-in-animation 0.5s ease-in-out forwards;
+}
+
+
+
 </style> 
 	   <style>
        img {
@@ -54,14 +85,19 @@ a:active {
     </style>
   </head>
   <body style="background-color:#E1F4FF;">
-    <div class="title-bar">Porta Schoolkrant Site | <a href="/portaschoolkrant/index.html">Home</a> | <a href="/portaschoolkrant/meedoen.html">Meehelpen</a> | <a href="/portaschoolkrant/download.html">Download</a></div>
-    <H1 style="font-family: Verdana"><p>Welkom bij de schoolkrant site! </p></H1>
+    
+    <div class="title-bar">Porta Schoolkrant Site | <a href="/portaschoolkrant/index.html" class="fade-out-link">Home</a> | <a href="/portaschoolkrant/meedoen.html" class="fade-out-link">Meehelpen</a> | <a href="/portaschoolkrant/download.html" class="fade-out-link">Download</a></div>
+    <div class="fade-out"><div class="fade-in">
+      <H1 style="font-family: Verdana"><p>Welkom bij de schoolkrant site! </p></H1>
 
       <b><H4 style="font-family: Helvetica"><p>Dit is de site van de schoolkrant. De redactie heeft hard gewerkt aan de laatste editie, dus download hem snel!<br><br>
       
       Contact: example@test.nl</p></H4></b>
 	    
 	<br><br>
-	    <img src="logo.png"></a>
+      <img src="logo.png"></a>
+      </div></div>
+
+      <script src="Fade-out.js"></script> 
   </body>
 </html>
